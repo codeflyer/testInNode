@@ -6,10 +6,11 @@ var UserManager = require('../services/userManager');
 var Q = require('Q');
 var MongoClient = require('mongodb').MongoClient;
 
-describe('UserManager', function() {
+describe('UserManager: real connection', function() {
     var _connection;
     before(function(done) {
         var dbName = "TestInNodeDb";
+        fixtures = require('pow-mongodb-fixtures').connect(dbName);
         MongoClient.connect('mongodb://localhost/' + dbName, function(err, db) {
             if(err) {
                 throw err;
@@ -21,8 +22,11 @@ describe('UserManager', function() {
     });
 
     var sandbox;
-    beforeEach(function() {
+    beforeEach(function(done) {
         sandbox = sinon.sandbox.create();
+        fixtures.clear(function(err) {
+            fixtures.load('./fixtures/users.js', done);
+        });
     });
 
     afterEach(function() {
@@ -34,7 +38,7 @@ describe('UserManager', function() {
         done();
     });
 
-    it('Load byId (from a real database)', function(done) {
+    it('Load byId', function(done) {
         UserManager.getUserById(1).then(
             function(user) {
                 try {
@@ -54,7 +58,7 @@ describe('UserManager', function() {
         );
     });
 
-    it('Load byId, user not exists (from a real database)', function(done) {
+    it('Load byId, user not exists', function(done) {
         UserManager.getUserById(2).then(
             function(user) {
                 try {
