@@ -16,4 +16,16 @@ User.prototype.setEmail = function(email) {
     this.email = email;
 };
 
+User.prototype.getName = function() {
+    return this.name;
+};
+
+User.prototype.getSurname = function() {
+    return this.surname;
+};
+
+User.prototype.getEmail = function() {
+    return this.email;
+};
+
 module.exports = User;

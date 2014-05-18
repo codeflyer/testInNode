@@ -18,4 +18,14 @@ describe('User', function(){
         user.surname.should.be.equal('Fiorello');
         user.email.should.be.equal('davide@codeflyer.com');
     });
+
+    it('Get values', function() {
+        var user = new User();
+        user.name = 'Davide';
+        user.surname = 'Fiorello';
+        user.email = 'davide@codeflyer.com';
+        user.getName().should.be.equal('Davide');
+        user.getSurname().should.be.equal('Fiorello');
+        user.getEmail().should.be.equal('davide@codeflyer.com');
+    });
 });
