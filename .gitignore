@@ -1,0 +1,35 @@
+.sass-cache
+.idea
+Gemfile.lock
+node_modules
+coverage/
+public/app
+public/js
+public/assets
+public/media
+logs
+originalChannel
+src/assets/images/generated
+src/assets/images/rgba-fallbacks
+media/*
+PSD_AI
+config/runtime.json
+
+# OS generated files #
+######################
+*/.DS_Store
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+run.sh
+runTest.sh
+dump.rdb
+
+
+# COMPASS GENERATED
+src/assets/images/icons-*.png
+src/assets/images/topmenu-*.png
