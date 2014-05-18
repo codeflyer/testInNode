@@ -6,7 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var userCtrl = require('./controllers/userCtrl');
+
+var UserDriver =require('./drivers/userDriver');
+var MongoClient = require('mongodb').MongoClient;
+MongoClient.connect('mongodb://localhost/' + "TestInNodeDb", function(err, db) {
+    if(err) {
+        throw err;
+    }
+    UserDriver.setConnection(db);
+});
+
 
 var app = express();
 
@@ -22,7 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.get('/user/:id', userCtrl);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
