@@ -17,5 +17,8 @@
         "mongodb" : "1.4.0",
         "q" : "1.0.1",
         "async" : "0.2.5"
+    },
+    "devDependencies" : {
+        "mocha" : "^1.19.0"
     }
 }
