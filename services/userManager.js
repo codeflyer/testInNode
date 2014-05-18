@@ -7,11 +7,15 @@ var UserManager = (function() {
             var deferred = Q.defer();
             UserDriver.getUserById(id).then(
                 function(userData) {
-                    var user = new User();
-                    user.setName(userData.name);
-                    user.setSurname(userData.surname);
-                    user.setEmail(userData.email);
-                    deferred.resolve(user);
+                    if(userData != null) {
+                        var user = new User();
+                        user.setName(userData.name);
+                        user.setSurname(userData.surname);
+                        user.setEmail(userData.email);
+                        deferred.resolve(user);
+                    } else {
+                        deferred.resolve(null);
+                    }
                 },
                 function(err) {
                     deferred.reject(err);
