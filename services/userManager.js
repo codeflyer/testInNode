@@ -1,14 +1,22 @@
 var User = require('../models/user');
+var UserDriver = require('../drivers/userDriver');
 var Q = require('Q');
 var UserManager = (function() {
     return {
         "getUserById" : function(id) {
             var deferred = Q.defer();
-            var user = new User();
-            user.setName('Davide');
-            user.setSurname('Fiorello');
-            user.setEmail('davide@codeflyer.com');
-            deferred.resolve(user);
+            UserDriver.getUserById(id).then(
+                function(userData) {
+                    var user = new User();
+                    user.setName(userData.name);
+                    user.setSurname(userData.surname);
+                    user.setEmail(userData.email);
+                    deferred.resolve(user);
+                },
+                function(err) {
+                    deferred.reject(err);
+                }
+            );
             return deferred.promise;
         }
     }
