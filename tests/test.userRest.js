@@ -1,4 +1,3 @@
-require('should');
 var Client = require('node-rest-client').Client;
 
 describe('User Rest Request', function() {

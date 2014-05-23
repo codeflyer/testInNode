@@ -1,4 +1,3 @@
-require('should');
 var User = require('../models/user');
 describe('User', function(){
     it('Create instance', function() {
