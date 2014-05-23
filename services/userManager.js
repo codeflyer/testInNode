@@ -1,6 +1,7 @@
 var User = require('../models/user');
 var UserDriver = require('../drivers/userDriver');
-var Q = require('Q');
+var Q = require('q');
+
 var UserManager = (function() {
     return {
         "getUserById" : function(id) {
