@@ -1,4 +1,5 @@
-var Q = require('Q');
+var Q = require('q');
+
 var UserDriver = (function() {
     var _collectionName = 'users';
     var _connection;
