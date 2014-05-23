@@ -3,7 +3,6 @@ var sinon = require('sinon');
 var User = require('../models/user');
 var UserDriver = require('../drivers/userDriver');
 var UserManager = require('../services/userManager');
-var Q = require('Q');
 var MongoClient = require('mongodb').MongoClient;
 
 describe('UserManager: real connection', function() {
