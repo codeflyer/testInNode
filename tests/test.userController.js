@@ -1,4 +1,3 @@
-require('should');
 var MongoClient = require('mongodb').MongoClient;
 var httpMocks = require('node-mocks-http');
 var userCtrl = require('../controllers/userCtrl');

@@ -1,4 +1,3 @@
-require('should');
 var sinon = require('sinon');
 var User = require('../models/user');
 var UserDriver = require('../drivers/userDriver');
