@@ -85,7 +85,7 @@ Install mocha and add a dummy test.
 
 **Mocha** is a javascript test framework that run in Node.js and directly in the browser.
 
-http://visionmedia.github.io/mocha/
+http://mochajs.org/
 
 This step add:
  * Dependency on **mocha** in the *package.json* file.
